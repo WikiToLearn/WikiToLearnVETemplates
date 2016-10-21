@@ -15,8 +15,8 @@
         this.insertTemplate(this.name);
     }
     InsertTemplateButton.prototype.insertTemplate = function(templateName){
-        var beginTemplate = "begin" + templateName;
-        var endTemplate = "end" + templateName;
+        var beginTemplate = "Begin" + templateName;
+        var endTemplate = "End" + templateName;
 
         var selection = this.toolbar.getSurface().getModel().getFragment().collapseToEnd();
 
@@ -38,12 +38,10 @@
                 }
             },
             { type: '/mwTransclusion' }]).collapseToEnd();
-
         var paragraph = selection = selection.insertContent([
             { type: 'paragraph' },
             { type: '/paragraph' }
             ]).collapseToEnd();
-
         var end = selection = selection.insertContent([{
                 'type': 'mwTransclusion',
                 'attributes': {
@@ -74,7 +72,7 @@
     };
     OO.inheritClass( InsertTheorem, InsertTemplateButton );
     InsertTheorem.static.name = 'Theorem';
-    InsertTheorem.static.title = 'Add Theorem';
+    InsertTheorem.static.title = 'Theorem';
     ve.ui.toolFactory.register(InsertTheorem);
 
     InsertExample = function InsertExample( toolGroup, config ) {
@@ -83,7 +81,7 @@
     };
     OO.inheritClass( InsertExample, InsertTemplateButton );
     InsertExample.static.name = 'Example';
-    InsertExample.static.title = 'Add Example';
+    InsertExample.static.title = 'Example';
     ve.ui.toolFactory.register(InsertExample);
 
     ve.init.mw.Target.static.toolbarGroups.push({
@@ -94,4 +92,5 @@
         label: 'Environment',
         include: ['Theorem', 'Example']
     });
+
 })();
