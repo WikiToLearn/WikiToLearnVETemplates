@@ -15,10 +15,12 @@
         this.insertTemplate(this.name);
     }
     InsertTemplateButton.prototype.insertTemplate = function(templateName){
-        beginTemplate = "begin" + templateName;
-        endTemplate = "end" + templateName;
+        var beginTemplate = "begin" + templateName;
+        var endTemplate = "end" + templateName;
 
-        console.log(this.toolbar.getSurface().getModel().getFragment().collapseToEnd().insertContent(
+        var selection = this.toolbar.getSurface().getModel().getFragment().collapseToEnd();
+
+        var begin = selection = selection.insertContent(
             [{
                 'type': 'mwTransclusion',
                 'attributes': {
@@ -35,10 +37,14 @@
                     }
                 }
             },
-            { type: '/mwTransclusion' },
+            { type: '/mwTransclusion' }]).collapseToEnd();
+
+        var paragraph = selection = selection.insertContent([
             { type: 'paragraph' },
-            { type: '/paragraph' },
-            {
+            { type: '/paragraph' }
+            ]).collapseToEnd();
+
+        var end = selection = selection.insertContent([{
                 'type': 'mwTransclusion',
                 'attributes': {
                     'mw': {
@@ -54,7 +60,11 @@
                     }
                 }
             },
-            { type: '/mwTransclusion' }]));
+            { type: '/mwTransclusion' }]).collapseToEnd();
+        var doc = paragraph.getSelection().documentModel;
+        var range = paragraph.getSelection().range;
+        var range = new ve.Range(range.from, range.from);
+        ve.init.target.getSurface().getModel().setSelection(new ve.dm.LinearSelection(doc, range));
     }
     
 
