@@ -1,0 +1,34 @@
+{
+    "name": "WikiToLearnVETemplates",
+    "version": "0.0.1",
+    "author": [
+    ],
+    "descriptionmsg": "",
+    "license-name": "GPLv3",
+    "type": "other",
+    "AutoloadClasses": {
+        "WikiToLearnVETemplates": "WikiToLearnVETemplates.php"
+    },
+    "ResourceFileModulePaths": {
+        "localBasePath": ""
+    },
+    "ResourceModules": {
+        "ext.WikiToLearnVETemplates.visualEditor": {
+            "scripts": [
+                "modules/ve.ui.TemplatesButton.js"
+            ],
+            "dependencies": [
+                "ext.visualEditor.mwcore",
+                "mediawiki.util",
+                "oojs-ui"
+            ]
+        }
+    },
+    "VisualEditorPluginModules": [
+        "ext.WikiToLearnVETemplates.visualEditor"
+    ],
+    "config": {
+
+    },
+    "manifest_version": 1
+}
