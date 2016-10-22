@@ -25,8 +25,11 @@
     "wtlvet-ui-option-proposition": "Proposizione",
     "wtlvet-env-name-proposition": "Proposizione",
 
-    "wtlvet-ui-option-observation": "Osservazione",
-    "wtlvet-env-name-observation": "Osservazione",
+    "wtlvet-ui-option-remark": "Osservazione",
+    "wtlvet-env-name-remark": "Osservazione",
+
+    "wtlvet-ui-option-exercise": "Esercizio",
+    "wtlvet-env-name-exercise": "Esercizio",
 
     "wtlvet-env-begin": "Inizio",
     "wtlvet-env-end": "Fine"

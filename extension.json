@@ -40,8 +40,10 @@
                 "wtlvet-env-name-proof",
                 "wtlvet-ui-option-proposition",
                 "wtlvet-env-name-proposition",
-                "wtlvet-ui-option-observation",
-                "wtlvet-env-name-observation",
+                "wtlvet-ui-option-remark",
+                "wtlvet-env-name-remark",
+                "wtlvet-ui-option-exercise",
+                "wtlvet-env-name-exercise",
                 "wtlvet-env-begin",
                 "wtlvet-env-end"
             ]

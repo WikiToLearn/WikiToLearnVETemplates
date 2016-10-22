@@ -67,7 +67,7 @@
         ve.init.target.getSurface().getModel().setSelection(new ve.dm.LinearSelection(doc, range));
     }
     
-    var environments = ["theorem", "definition", "lemma", "example", "corollary", "axiom", "proof", "proposition", "observation"];
+    var environments = [ 'definition', 'theorem', 'proof', 'example', 'proposition', 'corollary', 'axiom', 'remark', 'lemma', 'exercise'];
     for(i=0;i<environments.length;i++){
         InsertGeneric = function InsertGeneric( toolGroup, config ) {
             InsertGeneric.super.apply(this, arguments);
@@ -87,8 +87,7 @@
         title: mw.msg('wtlvet-ui-menu-label'),
         label: mw.msg('wtlvet-ui-menu-label'),
         promote: [ 'definition', 'theorem', 'proof', 'example' ],
-        demote: [ 'proposition', 'corollary', 'axiom', 'observation', 'lemma' ],
-
+        demote: [ 'proposition', 'corollary', 'axiom', 'remark', 'lemma', 'exercise' ],
         include: environments
     });
 
