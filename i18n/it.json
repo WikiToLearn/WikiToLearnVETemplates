@@ -1,0 +1,33 @@
+{
+    "wtlvet-ui-menu-label": "Ambiente",
+
+    "wtlvet-ui-option-theorem": "Teorema",
+    "wtlvet-env-name-theorem": "Teorema",
+
+    "wtlvet-ui-option-definition": "Definizione",
+    "wtlvet-env-name-definition": "Definizione",
+
+    "wtlvet-ui-option-lemma": "Lemma",
+    "wtlvet-env-name-lemma": "Lemma",
+
+    "wtlvet-ui-option-example": "Esempio",
+    "wtlvet-env-name-example": "Esempio",
+
+    "wtlvet-ui-option-corollary": "Corollario",
+    "wtlvet-env-name-corollary": "Corollario",
+
+    "wtlvet-ui-option-axiom": "Assioma",
+    "wtlvet-env-name-axiom": "Assioma",
+
+    "wtlvet-ui-option-proof": "Dimostazione",
+    "wtlvet-env-name-proof": "Dimostazione",
+
+    "wtlvet-ui-option-proposition": "Proposizione",
+    "wtlvet-env-name-proposition": "Proposizione",
+
+    "wtlvet-ui-option-observation": "Osservazione",
+    "wtlvet-env-name-observation": "Osservazione",
+
+    "wtlvet-env-begin": "Inizio",
+    "wtlvet-env-end": "Fine"
+}

@@ -21,8 +21,36 @@
                 "ext.visualEditor.mwcore",
                 "mediawiki.util",
                 "oojs-ui"
+            ],
+            "messages": [
+                "wtlvet-ui-menu-label",
+                "wtlvet-ui-option-theorem",
+                "wtlvet-env-name-theorem",
+                "wtlvet-ui-option-definition",
+                "wtlvet-env-name-definition",
+                "wtlvet-ui-option-lemma",
+                "wtlvet-env-name-lemma",
+                "wtlvet-ui-option-example",
+                "wtlvet-env-name-example",
+                "wtlvet-ui-option-corollary",
+                "wtlvet-env-name-corollary",
+                "wtlvet-ui-option-axiom",
+                "wtlvet-env-name-axiom",
+                "wtlvet-ui-option-proof",
+                "wtlvet-env-name-proof",
+                "wtlvet-ui-option-proposition",
+                "wtlvet-env-name-proposition",
+                "wtlvet-ui-option-observation",
+                "wtlvet-env-name-observation",
+                "wtlvet-env-begin",
+                "wtlvet-env-end"
             ]
         }
+    },
+    "MessagesDirs":{
+        "WikiToLearnVETemplates":[
+            "i18n"
+        ]
     },
     "VisualEditorPluginModules": [
         "ext.WikiToLearnVETemplates.visualEditor"

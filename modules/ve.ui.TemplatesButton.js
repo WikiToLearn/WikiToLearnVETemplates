@@ -15,8 +15,8 @@
         this.insertTemplate(this.name);
     }
     InsertTemplateButton.prototype.insertTemplate = function(templateName){
-        var beginTemplate = "Begin" + templateName;
-        var endTemplate = "End" + templateName;
+        var beginTemplate = mw.msg('wtlvet-env-begin') + templateName;
+        var endTemplate = mw.msg('wtlvet-env-end') + templateName;
 
         var selection = this.toolbar.getSurface().getModel().getFragment().collapseToEnd();
 
@@ -59,38 +59,37 @@
                 }
             },
             { type: '/mwTransclusion' }]).collapseToEnd();
+
+        //position the cursor inside the paragraph
         var doc = paragraph.getSelection().documentModel;
         var range = paragraph.getSelection().range;
         var range = new ve.Range(range.from, range.from);
         ve.init.target.getSurface().getModel().setSelection(new ve.dm.LinearSelection(doc, range));
     }
     
-
-    InsertTheorem = function InsertTheorem( toolGroup, config ) {
-        InsertTheorem.super.apply(this, arguments);
-        this.name = 'Theorem';
-    };
-    OO.inheritClass( InsertTheorem, InsertTemplateButton );
-    InsertTheorem.static.name = 'Theorem';
-    InsertTheorem.static.title = 'Theorem';
-    ve.ui.toolFactory.register(InsertTheorem);
-
-    InsertExample = function InsertExample( toolGroup, config ) {
-        InsertExample.super.apply(this, arguments);
-        this.name = 'Example';
-    };
-    OO.inheritClass( InsertExample, InsertTemplateButton );
-    InsertExample.static.name = 'Example';
-    InsertExample.static.title = 'Example';
-    ve.ui.toolFactory.register(InsertExample);
+    var environments = ["theorem", "definition", "lemma", "example", "corollary", "axiom", "proof", "proposition", "observation"];
+    for(i=0;i<environments.length;i++){
+        InsertGeneric = function InsertGeneric( toolGroup, config ) {
+            InsertGeneric.super.apply(this, arguments);
+            this.name = mw.msg('wtlvet-env-name-' + InsertGeneric.static.name);
+        };
+        OO.inheritClass( InsertGeneric, InsertTemplateButton );
+        InsertGeneric.static.name = environments[i];
+        InsertGeneric.static.title = mw.msg('wtlvet-ui-option-' + environments[i]);
+        ve.ui.toolFactory.register(InsertGeneric);
+    }
+    
 
     ve.init.mw.Target.static.toolbarGroups.push({
         type: 'list',
         indicator: 'down',
         icon: 'add',
-        title: 'Environment',
-        label: 'Environment',
-        include: ['Theorem', 'Example']
+        title: mw.msg('wtlvet-ui-menu-label'),
+        label: mw.msg('wtlvet-ui-menu-label'),
+        promote: [ 'definition', 'theorem', 'proof', 'example' ],
+        demote: [ 'proposition', 'corollary', 'axiom', 'observation', 'lemma' ],
+
+        include: environments
     });
 
 })();
