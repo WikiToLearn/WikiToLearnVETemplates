@@ -42,7 +42,7 @@ class WikiToLearnVETemplatesHooks{
         $envBegin = wfMessage('wtlvet-env-begin');
         $envEnd = wfMessage('wtlvet-env-end');
 
-        preg_match_all('/\{\{(?:(' . $envBegin .'\w+)|(' . $envEnd . '\w+))\}\}/', $text, $matches);
+        preg_match_all('/\{\{(?:(' . $envBegin .'\w+)|(' . $envEnd . '\w+))(?:\|.+)?\}\}/', $text, $matches);
         $tags = $matches[0];
     
         $stack = new SplStack();
@@ -51,8 +51,7 @@ class WikiToLearnVETemplatesHooks{
             $tag = $tags[$i];
 
             $tag = str_replace("{{", "", $tag); //remove {{BeginEnvName}}
-            $tag = str_replace("}}", "", $tag);
-
+            $tag = preg_replace('/(\|.+)?\}\}/', "", $tag);
             if(substr($tag, 0, strlen($envBegin)) == $envBegin){ //Begin
                 $stack->push($tag);
             } else { //EndSomething
@@ -80,11 +79,11 @@ class WikiToLearnVETemplatesHooks{
         $envBegin = wfMessage('wtlvet-env-begin');
         $envEnd = wfMessage('wtlvet-env-end');
 
-        $re = '/\{\{(' . $envBegin. '\w+)\}\}\n\n+/mi';
-        $reEnd = '/\n\n+\{\{(' . $envEnd . '\w+)\}\}/mi';
+        $re = '/\{\{(' . $envBegin. '\w+)(\|.+)?\}\}\n\n+/mi';
+        $reEnd = '/\n\n+\{\{(' . $envEnd . '\w+)(\|.+)?\}\}/mi';
 
-        $text = preg_replace($re, '{{$1}}' . "\n", $text);
-        $text = preg_replace($reEnd, "\n" . '{{$1}}', $text);
+        $text = preg_replace($re, '{{$1$2}}' . "\n", $text);
+        $text = preg_replace($reEnd, "\n" . '{{$1$2}}', $text);
         
         return $text;
     }
