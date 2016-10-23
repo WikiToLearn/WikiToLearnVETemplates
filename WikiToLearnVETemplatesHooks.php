@@ -15,14 +15,14 @@ class WikiToLearnVETemplatesHooks{
         
         $checkResult = self::checkOpenCloseParity($text);
         $error = $checkResult[0];
-        if($error != MATCH_NO_ERROR){
+        if($error != self::MATCH_NO_ERROR){
             $status->setResult(false);
             $errorMessage = "";
-            if($error == MATCH_ERROR_CLOSED_BUT_OTHER_OPENED){
+            if($error == self::MATCH_ERROR_CLOSED_BUT_OTHER_OPENED){
                 $errorMessage = wfMessage("wtlvet-ui-error-closedButOtherOpened", $checkResult[1], $checkResult[2]) ;
-            } else if ($error == MATCH_ERROR_CLOSED_BUT_NEVER_OPENED) {
+            } else if ($error == self::MATCH_ERROR_CLOSED_BUT_NEVER_OPENED) {
                 $errorMessage = wfMessage("wtlvet-ui-error-closedButNeverOpened", $checkResult[1]) ;
-            } else if ($error == MATCH_ERROR_OPENED_BUT_NEVER_CLOSED) {
+            } else if ($error == self::MATCH_ERROR_OPENED_BUT_NEVER_CLOSED) {
                 $errorMessage = wfMessage("wtlvet-ui-error-openedButNeverClosed", $checkResult[1]) ;
             }
             $errorMessage = $errorMessage . "\n" . wfMessage("wtlvet-ui-error-pleaseCheck");
@@ -60,17 +60,17 @@ class WikiToLearnVETemplatesHooks{
                     $poppedTag = str_replace($envBegin, "", $poppedTag); //only get EnvName from BeginEnvName
                     $tag = str_replace($envEnd, "", $tag); //only get EnvName from EndEnvName
                     if($poppedTag != $tag) //hopefully the latest open and current closed are equal
-                        return [MATCH_ERROR_CLOSED_BUT_OTHER_OPENED, $tag, $poppedTag];
+                        return [self::MATCH_ERROR_CLOSED_BUT_OTHER_OPENED, $tag, $poppedTag];
 
                 } catch (RuntimeException $e) { //empty stack, more close than open
-                    return [MATCH_ERROR_CLOSED_BUT_NEVER_OPENED, $tag];
+                    return [self::MATCH_ERROR_CLOSED_BUT_NEVER_OPENED, $tag];
                 }
             }
         }
         if($stack->isEmpty()){
-            return [MATCH_NO_ERROR];
+            return [self::MATCH_NO_ERROR];
         } else {
-            return [MATCH_ERROR_OPENED_BUT_NEVER_CLOSED, $stack->pop()];
+            return [self::MATCH_ERROR_OPENED_BUT_NEVER_CLOSED, $stack->pop()];
         }
     }
 
