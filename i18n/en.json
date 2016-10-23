@@ -32,5 +32,10 @@
     "wtlvet-env-name-exercise": "Exercise",
 
     "wtlvet-env-begin": "Begin",
-    "wtlvet-env-end": "End"
+    "wtlvet-env-end": "End",
+
+    "wtlvet-ui-error-closedButOtherOpened": "$1 was opened but $2 was closed.",
+    "wtlvet-ui-error-closedButNeverOpened": "$1 was closed but it was never opened.",
+    "wtlvet-ui-error-openedButNeverClosed": "$1 was opened but it was never closed.",
+    "wtlvet-ui-error-pleaseCheck": "Please check your edit."
 }

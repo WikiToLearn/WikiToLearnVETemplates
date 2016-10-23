@@ -7,7 +7,9 @@
     "license-name": "GPLv3",
     "type": "other",
     "AutoloadClasses": {
-        "WikiToLearnVETemplates": "WikiToLearnVETemplates.php"
+        "WikiToLearnVETemplates": "WikiToLearnVETemplates.php",
+        "WikiToLearnVETemplatesHooks": "WikiToLearnVETemplatesHooks.php"
+
     },
     "ResourceFileModulePaths": {
         "localBasePath": ""
@@ -45,7 +47,12 @@
                 "wtlvet-ui-option-exercise",
                 "wtlvet-env-name-exercise",
                 "wtlvet-env-begin",
-                "wtlvet-env-end"
+                "wtlvet-env-end",
+                "wtlvet-ui-error-closedButOtherOpened",
+                "wtlvet-ui-error-closedButNeverOpened",
+                "wtlvet-ui-error-openedButNeverClosed",
+                "wtlvet-ui-error-pleaseCheck"
+
             ]
         }
     },
@@ -59,6 +66,11 @@
     ],
     "config": {
 
+    },
+    "Hooks":{
+        "PageContentSave": [
+          "WikiToLearnVETemplatesHooks::checkOpenClose"
+        ]
     },
     "manifest_version": 1
 }
