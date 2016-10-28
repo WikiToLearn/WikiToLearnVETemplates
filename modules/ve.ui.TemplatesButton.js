@@ -12,6 +12,7 @@
         InsertTemplateButton.super.prototype.onUpdateState.apply( this, arguments );
     }
     InsertTemplateButton.prototype.onSelect = function () {
+        this.setActive(false);
         this.insertTemplate(this.name);
     }
     InsertTemplateButton.prototype.insertTemplate = function(templateName){
